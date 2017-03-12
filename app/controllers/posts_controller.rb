@@ -15,6 +15,13 @@ end
       render :new
     end
   end
+  def destroy
+
+    @post = Post.find(params[:id])
+    @post.destroy
+    redirect_to group_path(@group)
+    flash[:alert] = "post deleted"
+  end
 
 private
   def post_params
