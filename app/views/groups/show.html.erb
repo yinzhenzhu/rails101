@@ -21,7 +21,7 @@
          <td><%= post.user.email %></td>
          <td><%= post.created_at %></td>
          <td>
-           <% if current_user && current_user == @group.user %> 
+           <% if current_user && current_user == @group.user %>
          <%= link_to("Edit", edit_group_post_path(@group), class: "btn btn-sm btn-default") %>
          <%= link_to("Delete", group_post_path(@group),    class: "btn btn-sm btn-default",
                         method: :delete, data: { confirm: "Are you sure?" } )%>
@@ -30,4 +30,7 @@
        </tr>
        <% end %>
      </tbody>
-   </table>
+     </table>
+     <div class="text-center">
+       <%= will_paginate @posts %>
+     </div>
